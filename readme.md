@@ -1,4 +1,4 @@
-#** Book Analysis Server
+## Book Analysis Server
 
 
 # Introduction
@@ -33,7 +33,7 @@ In the SharedList class, we create four main methods: add node, print book, and 
 
 All the above code created is mainly used to power the below threading operation to achieve the function of tracking each line data from various books, creating a txt file for the content that the server read, searching the pattern frequency linked with each book title, and sorting by frequency.
 
-##Second parts: Socket and Netcat [Main & Server class:initiate + listen]
+## Second parts: Socket and Netcat [Main & Server class:initiate + listen]
 In this script, we built up a simple Netcat to achieve the basic function of listening and connecting.
 In the main, we use **argparse lib**(The argparse library is the Python standard library for handling command line arguments. By passing different parameters, we can control the program to perform different operations) to parse the command from the shell and figure out the listen and port information from the command initiated from clients.
 Then **create nc** to call server class and started listening.
