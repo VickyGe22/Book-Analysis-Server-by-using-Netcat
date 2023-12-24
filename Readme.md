@@ -1,4 +1,4 @@
-## Book Analysis Server
+# Book Analysis Server
 
 
 # Introduction
@@ -11,13 +11,13 @@ This project requires us to establish a local server and multiple clients by usi
 
 
 # Usage
-##A. To start the server, run the script from the command line with the desired port and pattern as arguments. For example: ./assignment3.py -l 12345 -p "e"
-##Arguments
+## A. To start the server, run the script from the command line with the desired port and pattern as arguments. For example: ./assignment3.py -l 12345 -p "e"
+## Arguments
 -l or --listen: The port number on which the server will listen for incoming connections.
 -p or --pattern: The pattern to search for in the text data.
 
-##B. To start the client by using Netcat, run the script from the command line with the desired port and pattern as arguments. For example: nc localhost 12345 -i 5 < pg71873.txt
-##Arguments
+## B. To start the client by using Netcat, run the script from the command line with the desired port and pattern as arguments. For example: nc localhost 12345 -i 5 < pg71873.txt
+## Arguments
 - localhost: the IP address or hostname of the machine
 - 1234: port number on which NC will attempt to establish a connection; the server should be listening on port 1234 to accept incoming data
 - -i <delay>: the -i option specifies the interval between sending and receiving data rows. If -1 is used, there will be a 1-second delay between each row
@@ -25,8 +25,8 @@ This project requires us to establish a local server and multiple clients by usi
 
 
 # Functionality
-##The script includes Three key components:
-##First parts: Data structure [Node class and SharedList class]
+## The script includes Three key components:
+## First parts: Data structure [Node class and SharedList class]
 Node and SharedList classes are used to store, manage, and search the text data/pattern in a linked list structure.
 In the Node class, the input for a node is data and book_id received from client-server. Each data links with one book_id which ensure to figure out different data contents from various book and easily to printout and create a text file when the client terminates. Besides, we set three-pointers which are used to follow the next book node, the next node in the same book, and the next node used to find search frequency.
 In the SharedList class, we create four main methods: add node, print book, and search function achieved by (adding book title, search pattern count, updating book frequency, and getting book sorted by frequency). Besides, we created three dictionaries to store book heads, the frequency of search patterns in each book, and the title of each book in order to link the title with frequency and easy for the analysis thread to do the printout function.
@@ -48,7 +48,7 @@ Then we use a loop function about a **loop listens** for new connections and pas
     Then, we check the status of the client_thread by using the running flag. Once it is terminated, we close the socket by using **close()**. And checking their status by using **is_alive()** and waiting for all threads to complete using methods **join()** function to ensure the server can be terminated beautifully.
 
 
-##Third parts: Multi-threading and Pattern analysis [Server class: handle_client + pattern analysis]
+## Third parts: Multi-threading and Pattern analysis [Server class: handle_client + pattern analysis]
 
 Two main methods created to achieve multi-threading and pattern analysis functions are: handle_client (used to execute client thread tasks) and pattern analysis(used to execute analysis thread tasks).
 In the initialization, we **create three lists**: shared_list(used to store the data from the client book), pattern_queue(created a queue to record the book data in order to easy searching analysis operation), and book_titlelist(in order to track book title and achieve function to stdout the book title with frequency)
